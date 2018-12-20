@@ -2,7 +2,8 @@
  * Author: Brion Silva
  * Creation date: 21/12/2018
  */
-MACHINE Space
+MACHINE
+    Space
 
 CONSTANTS
     spacewidth, spaceheight, space, homebase, starbase, asteroids
