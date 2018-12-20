@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<db_xml>
+    <atelierb version="3_7_ubuntu-cvs" />
+    <project decomp_dir="/Users/brionsilva/Desktop/IIT/Level 06/6SENG003C.1 Reasoning about Programs/Atelier B/SpaceshipAsteroidsArcadeGame/bdp/expand_src" old_decomp_dir="/Users/brionsilva/Desktop/IIT/Level 06/6SENG003C.1 Reasoning about Programs/Atelier B/SpaceshipAsteroidsArcadeGame/bdp/src">
+        <!-- Definition directory list -->
+        <!-- Component file list -->
+        <component_file path="/Users/brionsilva/Desktop/IIT/Level 06/6SENG003C.1 Reasoning about Programs/Atelier B/SpaceshipAsteroidsArcadeGame" name="Space" suffix="mch" user="brionsilva">
+            <component name="Space" type="specification" />
+        </component_file>
+        <component_file path="/Users/brionsilva/Desktop/IIT/Level 06/6SENG003C.1 Reasoning about Programs/Atelier B/SpaceshipAsteroidsArcadeGame" name="Spaceship" suffix="mch" user="brionsilva">
+            <component name="Spaceship" type="specification" />
+        </component_file>
+    </project>
+</db_xml>
