@@ -110,9 +110,9 @@ THEORY ListPreconditionX END
 THEORY ListSubstitutionX END
 &
 THEORY ListConstantsX IS
-  List_Valuable_Constants(Machine(Space))==(spacewidth,spaceheight,space,homebase,starbase,asteroids);
+  List_Valuable_Constants(Machine(Space))==(GridWidth,GridHeight,Grid,Homebase,Starbase,Asteroids);
   Inherited_List_Constants(Machine(Space))==(?);
-  List_Constants(Machine(Space))==(spacewidth,spaceheight,space,homebase,starbase,asteroids)
+  List_Constants(Machine(Space))==(GridWidth,GridHeight,Grid,Homebase,Starbase,Asteroids)
 END
 &
 THEORY ListSetsX IS
@@ -139,7 +139,7 @@ THEORY ListPropertiesX IS
   Abstract_List_Properties(Machine(Space))==(btrue);
   Context_List_Properties(Machine(Space))==(btrue);
   Inherited_List_Properties(Machine(Space))==(btrue);
-  List_Properties(Machine(Space))==(spacewidth <: NAT1 & spacewidth = 1..12 & spaceheight <: NAT1 & spaceheight = 1..7 & space: POW(NAT1*NAT1) & space = spacewidth*spaceheight & asteroids: POW(NAT1*NAT1) & asteroids = {7|->1,3|->2,11|->2,8|->3,5|->4,3|->5,7|->5,12|->5,10|->6,6|->7,7|->7} & homebase: POW(NAT1*NAT1) & homebase = {1|->1} & starbase: POW(NAT1*NAT1) & starbase = {6|->4})
+  List_Properties(Machine(Space))==(GridWidth <: NAT1 & GridWidth = 1..12 & GridHeight <: NAT1 & GridHeight = 1..7 & Grid: POW(NAT1*NAT1) & Grid = GridWidth*GridHeight & Asteroids: POW(NAT1*NAT1) & Asteroids = {7|->1,3|->2,11|->2,8|->3,5|->4,3|->5,7|->5,12|->5,10|->6,6|->7,7|->7} & Homebase: POW(NAT1*NAT1) & Homebase = {1|->1} & Starbase: POW(NAT1*NAT1) & Starbase = {6|->4})
 END
 &
 THEORY ListSeenInfoX END
@@ -147,15 +147,15 @@ THEORY ListSeenInfoX END
 THEORY ListANYVarX END
 &
 THEORY ListOfIdsX IS
-  List_Of_Ids(Machine(Space)) == (spacewidth,spaceheight,space,homebase,starbase,asteroids | ? | ? | ? | ? | ? | ? | ? | Space);
+  List_Of_Ids(Machine(Space)) == (GridWidth,GridHeight,Grid,Homebase,Starbase,Asteroids | ? | ? | ? | ? | ? | ? | ? | Space);
   List_Of_HiddenCst_Ids(Machine(Space)) == (? | ?);
-  List_Of_VisibleCst_Ids(Machine(Space)) == (spacewidth,spaceheight,space,homebase,starbase,asteroids);
+  List_Of_VisibleCst_Ids(Machine(Space)) == (GridWidth,GridHeight,Grid,Homebase,Starbase,Asteroids);
   List_Of_VisibleVar_Ids(Machine(Space)) == (? | ?);
   List_Of_Ids_SeenBNU(Machine(Space)) == (?: ?)
 END
 &
 THEORY ConstantsEnvX IS
-  Constants(Machine(Space)) == (Type(spacewidth) == Cst(SetOf(btype(INTEGER,"[spacewidth","]spacewidth")));Type(spaceheight) == Cst(SetOf(btype(INTEGER,"[spaceheight","]spaceheight")));Type(space) == Cst(SetOf(btype(INTEGER,?,?)*btype(INTEGER,?,?)));Type(homebase) == Cst(SetOf(btype(INTEGER,?,?)*btype(INTEGER,?,?)));Type(starbase) == Cst(SetOf(btype(INTEGER,?,?)*btype(INTEGER,?,?)));Type(asteroids) == Cst(SetOf(btype(INTEGER,?,?)*btype(INTEGER,?,?))))
+  Constants(Machine(Space)) == (Type(GridWidth) == Cst(SetOf(btype(INTEGER,"[GridWidth","]GridWidth")));Type(GridHeight) == Cst(SetOf(btype(INTEGER,"[GridHeight","]GridHeight")));Type(Grid) == Cst(SetOf(btype(INTEGER,?,?)*btype(INTEGER,?,?)));Type(Homebase) == Cst(SetOf(btype(INTEGER,?,?)*btype(INTEGER,?,?)));Type(Starbase) == Cst(SetOf(btype(INTEGER,?,?)*btype(INTEGER,?,?)));Type(Asteroids) == Cst(SetOf(btype(INTEGER,?,?)*btype(INTEGER,?,?))))
 END
 &
 THEORY TCIntRdX IS
