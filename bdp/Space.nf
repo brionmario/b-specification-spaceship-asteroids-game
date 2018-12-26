@@ -139,7 +139,7 @@ THEORY ListPropertiesX IS
   Abstract_List_Properties(Machine(Space))==(btrue);
   Context_List_Properties(Machine(Space))==(btrue);
   Inherited_List_Properties(Machine(Space))==(btrue);
-  List_Properties(Machine(Space))==(GridXRange <: NAT1 & GridXRange = 1..12 & GridYRange <: NAT1 & GridYRange = 1..7 & Grid: NAT <-> NAT & Grid = GridXRange*GridYRange & Asteroids: POW(Grid) & Asteroids = {7|->1,3|->2,11|->2,8|->3,5|->4,3|->5,7|->5,12|->5,10|->6,6|->7,7|->7} & Homebase: Grid & Homebase = 1|->1 & Starbase: Grid & Starbase = 6|->4)
+  List_Properties(Machine(Space))==(GridXRange <: NAT1 & GridXRange = 1..12 & GridYRange <: NAT1 & GridYRange = 1..7 & Grid: POW(NAT1*NAT1) & Grid = GridXRange*GridYRange & Asteroids: POW(NAT1*NAT1) & Asteroids = {7|->1,3|->2,11|->2,8|->3,5|->4,3|->5,7|->5,12|->5,10|->6,6|->7,7|->7} & Homebase: POW(NAT1*NAT1) & Homebase = {1|->1} & Starbase: POW(NAT1*NAT1) & Starbase = {6|->4})
 END
 &
 THEORY ListSeenInfoX END
@@ -155,7 +155,7 @@ THEORY ListOfIdsX IS
 END
 &
 THEORY ConstantsEnvX IS
-  Constants(Machine(Space)) == (Type(GridXRange) == Cst(SetOf(btype(INTEGER,"[GridXRange","]GridXRange")));Type(GridYRange) == Cst(SetOf(btype(INTEGER,"[GridYRange","]GridYRange")));Type(Grid) == Cst(SetOf(btype(INTEGER,?,?)*btype(INTEGER,?,?)));Type(Homebase) == Cst(btype(INTEGER,?,?)*btype(INTEGER,?,?));Type(Starbase) == Cst(btype(INTEGER,?,?)*btype(INTEGER,?,?));Type(Asteroids) == Cst(SetOf(btype(INTEGER,?,?)*btype(INTEGER,?,?))))
+  Constants(Machine(Space)) == (Type(GridXRange) == Cst(SetOf(btype(INTEGER,"[GridXRange","]GridXRange")));Type(GridYRange) == Cst(SetOf(btype(INTEGER,"[GridYRange","]GridYRange")));Type(Grid) == Cst(SetOf(btype(INTEGER,?,?)*btype(INTEGER,?,?)));Type(Homebase) == Cst(SetOf(btype(INTEGER,?,?)*btype(INTEGER,?,?)));Type(Starbase) == Cst(SetOf(btype(INTEGER,?,?)*btype(INTEGER,?,?)));Type(Asteroids) == Cst(SetOf(btype(INTEGER,?,?)*btype(INTEGER,?,?))))
 END
 &
 THEORY TCIntRdX IS
