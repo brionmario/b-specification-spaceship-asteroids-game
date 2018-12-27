@@ -5,6 +5,51 @@
 ** Created : 21/12/2018
 ** Modified : 27/12/2018
 ******************************************************************************* */
+
+/* Operations:
+
+    MoveUp: 
+    This operation moves the spaceship one step up the grid (y+1).
+    The movement consumes 5 units of the spaceship's power.
+
+    MoveDown: 
+    This operation moves the spaceship one step down the grid (y-1).
+    The movement consumes 5 units of the spaceship's power.
+
+    MoveForward: 
+    This operation moves the spaceship one step forward on the grid (x+1).
+    The movement consumes 5 units of the spaceship's power.
+
+    MoveBackward: 
+    This operation moves the spaceship one step backward on the grid (x-1).
+    The movement consumes 5 units of the spaceship's power.
+
+    EngageWarpDrive( xx, yy ):
+    This operation moves the spaceship to any region of space (i.e. grid co-ordinates).
+    Engaging the warp-drive uses up 20 units of the spaceship's power. It is not
+    permitted to jump straight from homebase to starbase.
+    
+    MissionStatus: 
+    This enquiry operation reports the current status of the spaceship:
+        1. Its current location,
+        2. Its current power,
+        3. How many asteroid collisions it has had.
+
+    MissionRoute:
+    This enquiry operation reports the route (regions of space) that the spaceship
+    has travelled through in order.
+
+    DockedAtStarbase:
+    This enquiry operation reports whether the Spaceship is docked at the Starbase,
+    i.e. its current location is the Starbase.
+
+    GameStatus:
+    This enquiry operation reports:
+        1. Game WON, if the game is over & has been won
+        2. Game LOST, if over & has been lost and
+        3. Game Not Over, if its not over.
+*/
+
 MACHINE
     Spaceship
     
@@ -432,7 +477,7 @@ OPERATIONS
             THEN
                 /* Checks if the spaceship is inside the grid and has not hit an asteroid */ 
                 IF
-                    ( isSpaceshipInsideGrid( xx, yy ) & not( isAsteroidCollision( xx, yy ) ) & not( spaceshipCurrentPosition : Homebase ) ) 
+                    ( isSpaceshipInsideGrid( xx, yy ) & not( isAsteroidCollision( xx, yy ) ) & not( spaceshipCurrentPosition : Homebase & ( xx |-> yy ) : Starbase ) ) 
                 THEN
                     /* Checks if the current move results in the game winning */
                     IF
