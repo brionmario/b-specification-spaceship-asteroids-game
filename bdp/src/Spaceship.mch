@@ -1,7 +1,55 @@
-﻿/* Spaceship
-* Author: Brion Silva
-* Creation date: 21/12/2018
+﻿/* ******************************************************************************
+** 6SENG001W Reasoning About Programs Coursework (2018/19)
+** Component : Spaceship
+** Author : Brion Silva
+** Created : 21/12/2018
+** Modified : 27/12/2018
+******************************************************************************* */
+
+/* Operations:
+
+    MoveUp: 
+    This operation moves the spaceship one step up the grid (y+1).
+    The movement consumes 5 units of the spaceship's power.
+
+    MoveDown: 
+    This operation moves the spaceship one step down the grid (y-1).
+    The movement consumes 5 units of the spaceship's power.
+
+    MoveForward: 
+    This operation moves the spaceship one step forward on the grid (x+1).
+    The movement consumes 5 units of the spaceship's power.
+
+    MoveBackward: 
+    This operation moves the spaceship one step backward on the grid (x-1).
+    The movement consumes 5 units of the spaceship's power.
+
+    EngageWarpDrive( xx, yy ):
+    This operation moves the spaceship to any region of space (i.e. grid co-ordinates).
+    Engaging the warp-drive uses up 20 units of the spaceship's power. It is not
+    permitted to jump straight from homebase to starbase.
+    
+    MissionStatus: 
+    This enquiry operation reports the current status of the spaceship:
+        1. Its current location,
+        2. Its current power,
+        3. How many asteroid collisions it has had.
+
+    MissionRoute:
+    This enquiry operation reports the route (regions of space) that the spaceship
+    has travelled through in order.
+
+    DockedAtStarbase:
+    This enquiry operation reports whether the Spaceship is docked at the Starbase,
+    i.e. its current location is the Starbase.
+
+    GameStatus:
+    This enquiry operation reports:
+        1. Game WON, if the game is over & has been won
+        2. Game LOST, if over & has been lost and
+        3. Game Not Over, if its not over.
 */
+
 MACHINE
     Spaceship
 
@@ -9,8 +57,7 @@ SEES
     Space
 
 SETS
-    REPORT = { MOVEMENT_SUCCESSFUL , MOVEMENT_FAILED , MOVEMENT_FAILED_OUT_OF_BOUND , MOVEMENT_FAILED_ASTEROID_COLLISION , MOVEMENT_FAILED_INSUFFICIENT_POWER , WARP_DRIVE_SUCCESSFUL , WARP_DRIVE_FAILED , WARP_DRIVE_FAILED_OUT_OF_BOUND , WARP_DRIVE_FAILED_ASTEROID_COLLISION , WARP_DRIVE_FAILED_INSUFFICIENT_POWER , UNABLE_TO_DIRECTLY_WARP_TO_STARBASE , STARSHIP_DOCKED , GAME_WON , GAME_LOST , GAME_ALREADY_ENDED_PLEASE_START_A_NEW_GAME } ;
-    MOVEMENTS = { Upward , Downward , Backward , Forward , WarpDrive } ;
+    REPORT = { MOVEMENT_SUCCESSFUL , MOVEMENT_FAILED , MOVEMENT_FAILED_OUT_OF_BOUND , MOVEMENT_FAILED_ASTEROID_COLLISION , MOVEMENT_FAILED_INSUFFICIENT_POWER , WARP_DRIVE_SUCCESSFUL , WARP_DRIVE_FAILED , WARP_DRIVE_FAILED_OUT_OF_BOUND , WARP_DRIVE_FAILED_ASTEROID_COLLISION , WARP_DRIVE_FAILED_INSUFFICIENT_POWER , UNABLE_TO_DIRECTLY_WARP_TO_STARBASE , STARSHIP_IS_DOCKED_AT_STARBASE , STARSHIP_IS_NOT_AT_STARBASE , GAME_WON , GAME_LOST , GAME_NOT_OVER , GAME_ALREADY_ENDED_PLEASE_START_A_NEW_GAME } ;
     STATUS = { GameWon , GameLost , GameNotOver }
 
 
@@ -35,36 +82,27 @@ ABSTRACT_VARIABLES
     spaceshipX ,
     spaceshipY ,
     spaceshipPower ,
-    visitedRegions ,
-    noOfMovements ,
     noOfAsteroidCollisions ,
     spaceshipCurrentPosition ,
     spaceshipRoute ,
-    spaceshipMovements ,
     gameStatus
 
 INVARIANT
     spaceshipX : GridXRange &
     spaceshipY : GridYRange &
     spaceshipPower : NAT &
-    visitedRegions <: Grid &
-    noOfMovements : NAT &
     noOfAsteroidCollisions : NAT &
     spaceshipCurrentPosition : Grid &
     spaceshipRoute : seq ( Grid ) &
-    spaceshipMovements : seq ( MOVEMENTS ) &
     gameStatus <: STATUS
 
 INITIALISATION
     spaceshipX := 1
     || spaceshipY := 1
     || spaceshipPower := 80
-    || visitedRegions := {}
-    || noOfMovements := 0
     || noOfAsteroidCollisions := 0
     || spaceshipCurrentPosition := ( 1 |-> 1 )
     || spaceshipRoute := [ ( 1 |-> 1 ) ]
-    || spaceshipMovements := <>
     || gameStatus := { GameNotOver }
 
 OPERATIONS
@@ -91,11 +129,8 @@ OPERATIONS
                     THEN
                         spaceshipX , spaceshipY := spaceshipX , succ ( spaceshipY )
                         || spaceshipCurrentPosition := ( spaceshipX |-> succ ( spaceshipY ) )
-                        || noOfMovements := noOfMovements + 1
                         || spaceshipPower := spaceshipPower - NormalMovePowerConsumption
-                        || visitedRegions := visitedRegions \/ { ( spaceshipX |-> succ ( spaceshipY ) ) }
                         || spaceshipRoute := spaceshipRoute ^ [ spaceshipX |-> succ ( spaceshipY ) ]
-                        || spaceshipMovements := spaceshipMovements ^ [ Upward ]
                         || gameStatus := { GameWon }
                         || report := GAME_WON
                     ELSE
@@ -105,21 +140,15 @@ OPERATIONS
                         THEN
                             spaceshipX , spaceshipY := spaceshipX , succ ( spaceshipY )
                             || spaceshipCurrentPosition := ( spaceshipX |-> succ ( spaceshipY ) )
-                            || noOfMovements := noOfMovements + 1
                             || spaceshipPower := spaceshipPower - NormalMovePowerConsumption
-                            || visitedRegions := visitedRegions \/ { ( spaceshipX |-> succ ( spaceshipY ) ) }
                             || spaceshipRoute := spaceshipRoute ^ [ spaceshipX |-> succ ( spaceshipY ) ]
-                            || spaceshipMovements := spaceshipMovements ^ [ Upward ]
                             || gameStatus := { GameNotOver }
                             || report := MOVEMENT_SUCCESSFUL
                         ELSE
                             spaceshipX , spaceshipY := spaceshipX , succ ( spaceshipY )
                             || spaceshipCurrentPosition := ( spaceshipX |-> succ ( spaceshipY ) )
-                            || noOfMovements := noOfMovements + 1
                             || spaceshipPower := spaceshipPower - NormalMovePowerConsumption
-                            || visitedRegions := visitedRegions \/ { ( spaceshipX |-> succ ( spaceshipY ) ) }
                             || spaceshipRoute := spaceshipRoute ^ [ spaceshipX |-> succ ( spaceshipY ) ]
-                            || spaceshipMovements := spaceshipMovements ^ [ Upward ]
                             || gameStatus := { GameLost }
                             || report := GAME_LOST
                         END
@@ -147,7 +176,7 @@ OPERATIONS
                     ( not ( ( ( spaceshipX |-> succ ( spaceshipY ) ) : Grid )      ) )
                 THEN
                     report := MOVEMENT_FAILED_OUT_OF_BOUND
-                ELSE /* Default movement error */
+                ELSE
                     report := MOVEMENT_FAILED
                 END
                 /* If the power is not enough, sets the game status to lost and displays an insufficient power message */
@@ -186,11 +215,8 @@ OPERATIONS
                     THEN
                         spaceshipX , spaceshipY := spaceshipX , pred ( spaceshipY )
                         || spaceshipCurrentPosition := ( spaceshipX |-> pred ( spaceshipY ) )
-                        || noOfMovements := noOfMovements + 1
                         || spaceshipPower := spaceshipPower - NormalMovePowerConsumption
-                        || visitedRegions := visitedRegions \/ { ( spaceshipX |-> pred ( spaceshipY ) ) }
                         || spaceshipRoute := spaceshipRoute ^ [ spaceshipX |-> pred ( spaceshipY ) ]
-                        || spaceshipMovements := spaceshipMovements ^ [ Upward ]
                         || gameStatus := { GameWon }
                         || report := GAME_WON
                     ELSE
@@ -200,21 +226,15 @@ OPERATIONS
                         THEN
                             spaceshipX , spaceshipY := spaceshipX , pred ( spaceshipY )
                             || spaceshipCurrentPosition := ( spaceshipX |-> pred ( spaceshipY ) )
-                            || noOfMovements := noOfMovements + 1
                             || spaceshipPower := spaceshipPower - NormalMovePowerConsumption
-                            || visitedRegions := visitedRegions \/ { ( spaceshipX |-> pred ( spaceshipY ) ) }
                             || spaceshipRoute := spaceshipRoute ^ [ spaceshipX |-> pred ( spaceshipY ) ]
-                            || spaceshipMovements := spaceshipMovements ^ [ Upward ]
                             || gameStatus := { GameNotOver }
                             || report := MOVEMENT_SUCCESSFUL
                         ELSE
                             spaceshipX , spaceshipY := spaceshipX , pred ( spaceshipY )
                             || spaceshipCurrentPosition := ( spaceshipX |-> pred ( spaceshipY ) )
-                            || noOfMovements := noOfMovements + 1
                             || spaceshipPower := spaceshipPower - NormalMovePowerConsumption
-                            || visitedRegions := visitedRegions \/ { ( spaceshipX |-> pred ( spaceshipY ) ) }
                             || spaceshipRoute := spaceshipRoute ^ [ spaceshipX |-> pred ( spaceshipY ) ]
-                            || spaceshipMovements := spaceshipMovements ^ [ Upward ]
                             || gameStatus := { GameLost }
                             || report := GAME_LOST
                         END
@@ -242,7 +262,7 @@ OPERATIONS
                     ( not ( ( ( spaceshipX |-> pred ( spaceshipY ) ) : Grid )      ) )
                 THEN
                     report := MOVEMENT_FAILED_OUT_OF_BOUND
-                ELSE /* Default movement error */
+                ELSE
                     report := MOVEMENT_FAILED
                 END
                 /* If the power is not enough, sets the game status to lost and displays an insufficient power message */
@@ -280,11 +300,8 @@ OPERATIONS
                     THEN
                         spaceshipX , spaceshipY := pred ( spaceshipX ) , spaceshipY
                         || spaceshipCurrentPosition := ( pred ( spaceshipX ) |-> spaceshipY )
-                        || noOfMovements := noOfMovements + 1
                         || spaceshipPower := spaceshipPower - NormalMovePowerConsumption
-                        || visitedRegions := visitedRegions \/ { ( pred ( spaceshipX ) |-> spaceshipY ) }
                         || spaceshipRoute := spaceshipRoute ^ [ pred ( spaceshipX ) |-> spaceshipY ]
-                        || spaceshipMovements := spaceshipMovements ^ [ Upward ]
                         || gameStatus := { GameWon }
                         || report := GAME_WON
                     ELSE
@@ -294,21 +311,15 @@ OPERATIONS
                         THEN
                             spaceshipX , spaceshipY := pred ( spaceshipX ) , spaceshipY
                             || spaceshipCurrentPosition := ( pred ( spaceshipX ) |-> spaceshipY )
-                            || noOfMovements := noOfMovements + 1
                             || spaceshipPower := spaceshipPower - NormalMovePowerConsumption
-                            || visitedRegions := visitedRegions \/ { ( pred ( spaceshipX ) |-> spaceshipY ) }
                             || spaceshipRoute := spaceshipRoute ^ [ pred ( spaceshipX ) |-> spaceshipY ]
-                            || spaceshipMovements := spaceshipMovements ^ [ Upward ]
                             || gameStatus := { GameNotOver }
                             || report := MOVEMENT_SUCCESSFUL
                         ELSE
                             spaceshipX , spaceshipY := pred ( spaceshipX ) , spaceshipY
                             || spaceshipCurrentPosition := ( pred ( spaceshipX ) |-> spaceshipY )
-                            || noOfMovements := noOfMovements + 1
                             || spaceshipPower := spaceshipPower - NormalMovePowerConsumption
-                            || visitedRegions := visitedRegions \/ { ( pred ( spaceshipX ) |-> spaceshipY ) }
                             || spaceshipRoute := spaceshipRoute ^ [ pred ( spaceshipX ) |-> spaceshipY ]
-                            || spaceshipMovements := spaceshipMovements ^ [ Upward ]
                             || gameStatus := { GameLost }
                             || report := GAME_LOST
                         END
@@ -336,7 +347,7 @@ OPERATIONS
                     ( not ( ( ( pred ( spaceshipX ) |-> spaceshipY ) : Grid )      ) )
                 THEN
                     report := MOVEMENT_FAILED_OUT_OF_BOUND
-                ELSE /* Default movement error */
+                ELSE
                     report := MOVEMENT_FAILED
                 END
                 /* If the power is not enough, sets the game status to lost and displays an insufficient power message */
@@ -374,11 +385,8 @@ OPERATIONS
                     THEN
                         spaceshipX , spaceshipY := succ ( spaceshipX ) , spaceshipY
                         || spaceshipCurrentPosition := ( succ ( spaceshipX ) |-> spaceshipY )
-                        || noOfMovements := noOfMovements + 1
                         || spaceshipPower := spaceshipPower - NormalMovePowerConsumption
-                        || visitedRegions := visitedRegions \/ { ( succ ( spaceshipX ) |-> spaceshipY ) }
                         || spaceshipRoute := spaceshipRoute ^ [ succ ( spaceshipX ) |-> spaceshipY ]
-                        || spaceshipMovements := spaceshipMovements ^ [ Upward ]
                         || gameStatus := { GameWon }
                         || report := GAME_WON
                     ELSE
@@ -388,21 +396,15 @@ OPERATIONS
                         THEN
                             spaceshipX , spaceshipY := succ ( spaceshipX ) , spaceshipY
                             || spaceshipCurrentPosition := ( succ ( spaceshipX ) |-> spaceshipY )
-                            || noOfMovements := noOfMovements + 1
                             || spaceshipPower := spaceshipPower - NormalMovePowerConsumption
-                            || visitedRegions := visitedRegions \/ { ( succ ( spaceshipX ) |-> spaceshipY ) }
                             || spaceshipRoute := spaceshipRoute ^ [ succ ( spaceshipX ) |-> spaceshipY ]
-                            || spaceshipMovements := spaceshipMovements ^ [ Upward ]
                             || gameStatus := { GameNotOver }
                             || report := MOVEMENT_SUCCESSFUL
                         ELSE
                             spaceshipX , spaceshipY := succ ( spaceshipX ) , spaceshipY
                             || spaceshipCurrentPosition := ( succ ( spaceshipX ) |-> spaceshipY )
-                            || noOfMovements := noOfMovements + 1
                             || spaceshipPower := spaceshipPower - NormalMovePowerConsumption
-                            || visitedRegions := visitedRegions \/ { ( succ ( spaceshipX ) |-> spaceshipY ) }
                             || spaceshipRoute := spaceshipRoute ^ [ succ ( spaceshipX ) |-> spaceshipY ]
-                            || spaceshipMovements := spaceshipMovements ^ [ Upward ]
                             || gameStatus := { GameLost }
                             || report := GAME_LOST
                         END
@@ -430,7 +432,7 @@ OPERATIONS
                     ( not ( ( ( succ ( spaceshipX ) |-> spaceshipY ) : Grid )      ) )
                 THEN
                     report := MOVEMENT_FAILED_OUT_OF_BOUND
-                ELSE /* Default movement error */
+                ELSE
                     report := MOVEMENT_FAILED
                 END
                 /* If the power is not enough, sets the game status to lost and displays an insufficient power message */
@@ -460,7 +462,7 @@ OPERATIONS
             THEN
                 /* Checks if the spaceship is inside the grid and has not hit an asteroid */
                 IF
-                    ( ( ( xx |-> yy ) : Grid )        & not ( ( ( xx |-> yy ) : Asteroids ) ) )
+                    ( ( ( xx |-> yy ) : Grid )        & not ( ( ( xx |-> yy ) : Asteroids ) ) & not ( spaceshipCurrentPosition : Homebase & ( xx |-> yy ) : Starbase ) )
                 THEN
                     /* Checks if the current move results in the game winning */
                     IF
@@ -468,11 +470,8 @@ OPERATIONS
                     THEN
                         spaceshipX , spaceshipY := xx , yy
                         || spaceshipCurrentPosition := ( xx |-> yy )
-                        || noOfMovements := noOfMovements + 1
                         || spaceshipPower := spaceshipPower - WarpDrivePowerConsumption
-                        || visitedRegions := visitedRegions \/ { ( xx |-> yy ) }
                         || spaceshipRoute := spaceshipRoute ^ [ xx |-> yy ]
-                        || spaceshipMovements := spaceshipMovements ^ [ WarpDrive ]
                         || gameStatus := { GameWon }
                         || report := GAME_WON
                     ELSE
@@ -482,26 +481,25 @@ OPERATIONS
                         THEN
                             spaceshipX , spaceshipY := xx , yy
                             || spaceshipCurrentPosition := ( xx |-> yy )
-                            || noOfMovements := noOfMovements + 1
                             || spaceshipPower := spaceshipPower - WarpDrivePowerConsumption
-                            || visitedRegions := visitedRegions \/ { ( xx |-> yy ) }
                             || spaceshipRoute := spaceshipRoute ^ [ xx |-> yy ]
-                            || spaceshipMovements := spaceshipMovements ^ [ WarpDrive ]
                             || gameStatus := { GameNotOver }
                             || report := MOVEMENT_SUCCESSFUL
                         ELSE
                             spaceshipX , spaceshipY := xx , yy
                             || spaceshipCurrentPosition := ( xx |-> yy )
-                            || noOfMovements := noOfMovements + 1
                             || spaceshipPower := spaceshipPower - WarpDrivePowerConsumption
-                            || visitedRegions := visitedRegions \/ { ( xx |-> yy ) }
                             || spaceshipRoute := spaceshipRoute ^ [ xx |-> yy ]
-                            || spaceshipMovements := spaceshipMovements ^ [ WarpDrive ]
                             || gameStatus := { GameLost }
                             || report := GAME_LOST
                         END
                     END
-                    /* Checks if the spaceship has hit an asteroid */
+                /* Checks if the user tries to warp directly from home base to star base */
+                ELSIF
+                    ( spaceshipCurrentPosition : Homebase & ( xx |-> yy ) : Starbase )
+                THEN
+                    report := UNABLE_TO_DIRECTLY_WARP_TO_STARBASE
+                /* Checks if the spaceship has hit an asteroid */
                 ELSIF
                     ( ( ( xx |-> yy ) : Asteroids ) )
                 THEN
@@ -519,24 +517,67 @@ OPERATIONS
                         || spaceshipPower  := spaceshipPower - AsteroidCollisionPowerConsumption
                         || report := GAME_LOST
                     END
-                    /* Checks if the spaceship is not inside the grid */
+                /* Checks if the spaceship is not inside the grid */
                 ELSIF
                     ( not ( ( ( xx |-> yy ) : Grid )       ) )
                 THEN
                     report := WARP_DRIVE_FAILED_OUT_OF_BOUND
-                ELSE /* Default warp drive error */
+                ELSE
                     report := WARP_DRIVE_FAILED
                 END
             /* If the power is not enough, sets the game status to lost and displays an insufficient power message */
             ELSE
-                gameStatus := { GameLost }
-                || report := WARP_DRIVE_FAILED_INSUFFICIENT_POWER
+                report := WARP_DRIVE_FAILED_INSUFFICIENT_POWER
             END
          /* If the game is either already won or lost, a message will be displayed and the user will not be able to make any more moves */
         ELSIF
             ( GameWon : gameStatus or GameLost :  gameStatus )
         THEN
             report := GAME_ALREADY_ENDED_PLEASE_START_A_NEW_GAME
+        END
+    END ;
+
+    location , power , collisions <-- MissionStatus =
+    BEGIN
+        location := spaceshipCurrentPosition
+        || power := spaceshipPower
+        || collisions := noOfAsteroidCollisions
+    END ;
+
+    report <-- MissionRoute =
+    BEGIN
+        report := spaceshipRoute
+    END ;
+
+    report <-- DockedAtStarbase =
+    PRE
+        report : REPORT
+    THEN
+        IF
+            ( spaceshipCurrentPosition : Starbase )
+        THEN
+            report := STARSHIP_IS_DOCKED_AT_STARBASE
+        ELSE
+            report := STARSHIP_IS_NOT_AT_STARBASE
+        END
+    END ;
+
+    report <-- GameStatus =
+    PRE
+        report : REPORT
+    THEN
+        IF
+            ( GameWon : gameStatus )
+        THEN
+            report := GAME_WON
+        ELSIF
+            ( GameLost : gameStatus )
+        THEN
+            report := GAME_LOST
+        ELSIF
+            ( GameNotOver : gameStatus )
+        THEN
+            report := GAME_NOT_OVER
         END
     END
 

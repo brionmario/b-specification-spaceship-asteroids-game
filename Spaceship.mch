@@ -82,7 +82,6 @@ VARIABLES
     spaceshipX,
     spaceshipY,
     spaceshipPower,
-    visitedRegions,
     noOfAsteroidCollisions,
     spaceshipCurrentPosition,
     spaceshipRoute,
@@ -92,7 +91,6 @@ INVARIANT
     spaceshipX : GridXRange &
     spaceshipY : GridYRange &
     spaceshipPower : NAT &
-    visitedRegions <: Grid &
     noOfAsteroidCollisions : NAT &
     spaceshipCurrentPosition : Grid &
     spaceshipRoute : seq( Grid ) &
@@ -102,7 +100,6 @@ INITIALISATION
     spaceshipX := 1
     || spaceshipY := 1
     || spaceshipPower := 80
-    || visitedRegions := {}
     || noOfAsteroidCollisions := 0
     || spaceshipCurrentPosition := ( 1 |-> 1 ) 
     || spaceshipRoute := [ ( 1 |-> 1 ) ] 
@@ -133,7 +130,6 @@ OPERATIONS
                         spaceshipX, spaceshipY := spaceshipX, succ( spaceshipY )
                         || spaceshipCurrentPosition := ( spaceshipX |-> succ( spaceshipY ) ) 
                         || spaceshipPower := spaceshipPower - NormalMovePowerConsumption
-                        || visitedRegions := visitedRegions \/ { ( spaceshipX |-> succ( spaceshipY ) ) }
                         || spaceshipRoute := spaceshipRoute ^ [ spaceshipX |-> succ( spaceshipY ) ]
                         || gameStatus := { GameWon }
                         || report := GAME_WON
@@ -145,7 +141,6 @@ OPERATIONS
                             spaceshipX, spaceshipY := spaceshipX, succ( spaceshipY )
                             || spaceshipCurrentPosition := ( spaceshipX |-> succ( spaceshipY ) )
                             || spaceshipPower := spaceshipPower - NormalMovePowerConsumption
-                            || visitedRegions := visitedRegions \/ { ( spaceshipX |-> succ( spaceshipY ) ) }
                             || spaceshipRoute := spaceshipRoute ^ [ spaceshipX |-> succ( spaceshipY ) ]
                             || gameStatus := { GameNotOver }
                             || report := MOVEMENT_SUCCESSFUL
@@ -153,7 +148,6 @@ OPERATIONS
                             spaceshipX, spaceshipY := spaceshipX, succ( spaceshipY )
                             || spaceshipCurrentPosition := ( spaceshipX |-> succ( spaceshipY ) )
                             || spaceshipPower := spaceshipPower - NormalMovePowerConsumption
-                            || visitedRegions := visitedRegions \/ { ( spaceshipX |-> succ( spaceshipY ) ) }
                             || spaceshipRoute := spaceshipRoute ^ [ spaceshipX |-> succ( spaceshipY ) ]
                             || gameStatus := { GameLost }
                             || report := GAME_LOST
@@ -222,7 +216,6 @@ OPERATIONS
                         spaceshipX, spaceshipY := spaceshipX, pred( spaceshipY )
                         || spaceshipCurrentPosition := ( spaceshipX |-> pred( spaceshipY ) )
                         || spaceshipPower := spaceshipPower - NormalMovePowerConsumption
-                        || visitedRegions := visitedRegions \/ { ( spaceshipX |-> pred( spaceshipY ) ) }
                         || spaceshipRoute := spaceshipRoute ^ [ spaceshipX |-> pred( spaceshipY ) ]
                         || gameStatus := { GameWon }
                         || report := GAME_WON
@@ -234,7 +227,6 @@ OPERATIONS
                             spaceshipX, spaceshipY := spaceshipX, pred( spaceshipY )
                             || spaceshipCurrentPosition := ( spaceshipX |-> pred( spaceshipY ) )
                             || spaceshipPower := spaceshipPower - NormalMovePowerConsumption
-                            || visitedRegions := visitedRegions \/ { ( spaceshipX |-> pred( spaceshipY ) ) }
                             || spaceshipRoute := spaceshipRoute ^ [ spaceshipX |-> pred( spaceshipY ) ]
                             || gameStatus := { GameNotOver }
                             || report := MOVEMENT_SUCCESSFUL
@@ -242,7 +234,6 @@ OPERATIONS
                             spaceshipX, spaceshipY := spaceshipX, pred( spaceshipY )
                             || spaceshipCurrentPosition := ( spaceshipX |-> pred( spaceshipY ) )
                             || spaceshipPower := spaceshipPower - NormalMovePowerConsumption
-                            || visitedRegions := visitedRegions \/ { ( spaceshipX |-> pred( spaceshipY ) ) }
                             || spaceshipRoute := spaceshipRoute ^ [ spaceshipX |-> pred( spaceshipY ) ]
                             || gameStatus := { GameLost }
                             || report := GAME_LOST
@@ -310,7 +301,6 @@ OPERATIONS
                         spaceshipX, spaceshipY := pred( spaceshipX ), spaceshipY
                         || spaceshipCurrentPosition := ( pred( spaceshipX ) |-> spaceshipY )
                         || spaceshipPower := spaceshipPower - NormalMovePowerConsumption
-                        || visitedRegions := visitedRegions \/ { ( pred( spaceshipX ) |-> spaceshipY ) }
                         || spaceshipRoute := spaceshipRoute ^ [ pred( spaceshipX ) |-> spaceshipY ]
                         || gameStatus := { GameWon }
                         || report := GAME_WON
@@ -322,7 +312,6 @@ OPERATIONS
                             spaceshipX, spaceshipY := pred( spaceshipX ), spaceshipY
                             || spaceshipCurrentPosition := ( pred( spaceshipX ) |-> spaceshipY )
                             || spaceshipPower := spaceshipPower - NormalMovePowerConsumption
-                            || visitedRegions := visitedRegions \/ { ( pred( spaceshipX ) |-> spaceshipY ) }
                             || spaceshipRoute := spaceshipRoute ^ [ pred( spaceshipX ) |-> spaceshipY ]
                             || gameStatus := { GameNotOver }
                             || report := MOVEMENT_SUCCESSFUL
@@ -330,7 +319,6 @@ OPERATIONS
                             spaceshipX, spaceshipY := pred( spaceshipX ), spaceshipY
                             || spaceshipCurrentPosition := ( pred( spaceshipX ) |-> spaceshipY )
                             || spaceshipPower := spaceshipPower - NormalMovePowerConsumption
-                            || visitedRegions := visitedRegions \/ { ( pred( spaceshipX ) |-> spaceshipY ) }
                             || spaceshipRoute := spaceshipRoute ^ [ pred( spaceshipX ) |-> spaceshipY ]
                             || gameStatus := { GameLost }
                             || report := GAME_LOST
@@ -398,7 +386,6 @@ OPERATIONS
                         spaceshipX, spaceshipY := succ( spaceshipX ), spaceshipY
                         || spaceshipCurrentPosition := ( succ( spaceshipX ) |-> spaceshipY )
                         || spaceshipPower := spaceshipPower - NormalMovePowerConsumption
-                        || visitedRegions := visitedRegions \/ { ( succ( spaceshipX ) |-> spaceshipY ) }
                         || spaceshipRoute := spaceshipRoute ^ [ succ( spaceshipX ) |-> spaceshipY ]
                         || gameStatus := { GameWon }
                         || report := GAME_WON
@@ -410,7 +397,6 @@ OPERATIONS
                             spaceshipX, spaceshipY := succ( spaceshipX ), spaceshipY
                             || spaceshipCurrentPosition := ( succ( spaceshipX ) |-> spaceshipY )
                             || spaceshipPower := spaceshipPower - NormalMovePowerConsumption
-                            || visitedRegions := visitedRegions \/ { ( succ( spaceshipX ) |-> spaceshipY ) }
                             || spaceshipRoute := spaceshipRoute ^ [ succ( spaceshipX ) |-> spaceshipY ]
                             || gameStatus := { GameNotOver }
                             || report := MOVEMENT_SUCCESSFUL
@@ -418,7 +404,6 @@ OPERATIONS
                             spaceshipX, spaceshipY := succ( spaceshipX ), spaceshipY
                             || spaceshipCurrentPosition := ( succ( spaceshipX ) |-> spaceshipY )
                             || spaceshipPower := spaceshipPower - NormalMovePowerConsumption
-                            || visitedRegions := visitedRegions \/ { ( succ( spaceshipX ) |-> spaceshipY ) }
                             || spaceshipRoute := spaceshipRoute ^ [ succ( spaceshipX ) |-> spaceshipY ]
                             || gameStatus := { GameLost }
                             || report := GAME_LOST
@@ -486,7 +471,6 @@ OPERATIONS
                         spaceshipX, spaceshipY := xx, yy
                         || spaceshipCurrentPosition := ( xx |-> yy )
                         || spaceshipPower := spaceshipPower - WarpDrivePowerConsumption
-                        || visitedRegions := visitedRegions \/ { ( xx |-> yy ) }
                         || spaceshipRoute := spaceshipRoute ^ [ xx |-> yy ]
                         || gameStatus := { GameWon }
                         || report := GAME_WON
@@ -498,7 +482,6 @@ OPERATIONS
                             spaceshipX, spaceshipY := xx, yy
                             || spaceshipCurrentPosition := ( xx |-> yy )
                             || spaceshipPower := spaceshipPower - WarpDrivePowerConsumption
-                            || visitedRegions := visitedRegions \/ { ( xx |-> yy ) }
                             || spaceshipRoute := spaceshipRoute ^ [ xx |-> yy ]
                             || gameStatus := { GameNotOver }
                             || report := MOVEMENT_SUCCESSFUL
@@ -506,7 +489,6 @@ OPERATIONS
                             spaceshipX, spaceshipY := xx, yy
                             || spaceshipCurrentPosition := ( xx |-> yy )
                             || spaceshipPower := spaceshipPower - WarpDrivePowerConsumption
-                            || visitedRegions := visitedRegions \/ { ( xx |-> yy ) }
                             || spaceshipRoute := spaceshipRoute ^ [ xx |-> yy ]
                             || gameStatus := { GameLost }
                             || report := GAME_LOST
@@ -564,7 +546,7 @@ OPERATIONS
     
     report <-- MissionRoute =
     BEGIN
-        report := visitedRegions
+        report := spaceshipRoute
     END;
     
     report <-- DockedAtStarbase =
