@@ -1,140 +1,135 @@
-digraph state {
- graph [fontsize=12]
-rankdir=TB;
-"12" -> "5" [label = "Asteroids", color = "firebrick"];
-"11" -> "2" [label = "Asteroids", color = "firebrick"];
-"10" -> "6" [label = "Asteroids", color = "firebrick"];
-"8" -> "3" [label = "Asteroids", color = "firebrick"];
-"7" -> "7" [label = "Asteroids", color = "firebrick"];
-"7" -> "5" [label = "Asteroids", color = "firebrick"];
-"7" -> "1" [label = "Asteroids", color = "firebrick"];
-"6" -> "7" [label = "Asteroids", color = "firebrick"];
-"5" -> "4" [label = "Asteroids", color = "firebrick"];
-"3" -> "5" [label = "Asteroids", color = "firebrick"];
-"3" -> "2" [label = "Asteroids", color = "firebrick"];
-"6" -> "4" [label = "Starbase", color = "sienna"];
-"1" -> "1" [label = "Homebase", color = "SlateBlue4"];
-"12" -> "7" [label = "Grid", color = "black"];
-"12" -> "6" [label = "Grid", color = "black"];
-"12" -> "5" [label = "Grid", color = "black"];
-"12" -> "4" [label = "Grid", color = "black"];
-"12" -> "3" [label = "Grid", color = "black"];
-"12" -> "2" [label = "Grid", color = "black"];
-"12" -> "1" [label = "Grid", color = "black"];
-"11" -> "7" [label = "Grid", color = "black"];
-"11" -> "6" [label = "Grid", color = "black"];
-"11" -> "5" [label = "Grid", color = "black"];
-"11" -> "4" [label = "Grid", color = "black"];
-"11" -> "3" [label = "Grid", color = "black"];
-"11" -> "2" [label = "Grid", color = "black"];
-"11" -> "1" [label = "Grid", color = "black"];
-"10" -> "7" [label = "Grid", color = "black"];
-"10" -> "6" [label = "Grid", color = "black"];
-"10" -> "5" [label = "Grid", color = "black"];
-"10" -> "4" [label = "Grid", color = "black"];
-"10" -> "3" [label = "Grid", color = "black"];
-"10" -> "2" [label = "Grid", color = "black"];
-"10" -> "1" [label = "Grid", color = "black"];
-"9" -> "7" [label = "Grid", color = "black"];
-"9" -> "6" [label = "Grid", color = "black"];
-"9" -> "5" [label = "Grid", color = "black"];
-"9" -> "4" [label = "Grid", color = "black"];
-"9" -> "3" [label = "Grid", color = "black"];
-"9" -> "2" [label = "Grid", color = "black"];
-"9" -> "1" [label = "Grid", color = "black"];
-"8" -> "7" [label = "Grid", color = "black"];
-"8" -> "6" [label = "Grid", color = "black"];
-"8" -> "5" [label = "Grid", color = "black"];
-"8" -> "4" [label = "Grid", color = "black"];
-"8" -> "3" [label = "Grid", color = "black"];
-"8" -> "2" [label = "Grid", color = "black"];
-"8" -> "1" [label = "Grid", color = "black"];
-"7" -> "7" [label = "Grid", color = "black"];
-"7" -> "6" [label = "Grid", color = "black"];
-"7" -> "5" [label = "Grid", color = "black"];
-"7" -> "4" [label = "Grid", color = "black"];
-"7" -> "3" [label = "Grid", color = "black"];
-"7" -> "2" [label = "Grid", color = "black"];
-"7" -> "1" [label = "Grid", color = "black"];
-"6" -> "7" [label = "Grid", color = "black"];
-"6" -> "6" [label = "Grid", color = "black"];
-"6" -> "5" [label = "Grid", color = "black"];
-"6" -> "4" [label = "Grid", color = "black"];
-"6" -> "3" [label = "Grid", color = "black"];
-"6" -> "2" [label = "Grid", color = "black"];
-"6" -> "1" [label = "Grid", color = "black"];
-"5" -> "7" [label = "Grid", color = "black"];
-"5" -> "6" [label = "Grid", color = "black"];
-"5" -> "5" [label = "Grid", color = "black"];
-"5" -> "4" [label = "Grid", color = "black"];
-"5" -> "3" [label = "Grid", color = "black"];
-"5" -> "2" [label = "Grid", color = "black"];
-"5" -> "1" [label = "Grid", color = "black"];
-"4" -> "7" [label = "Grid", color = "black"];
-"4" -> "6" [label = "Grid", color = "black"];
-"4" -> "5" [label = "Grid", color = "black"];
-"4" -> "4" [label = "Grid", color = "black"];
-"4" -> "3" [label = "Grid", color = "black"];
-"4" -> "2" [label = "Grid", color = "black"];
-"4" -> "1" [label = "Grid", color = "black"];
-"3" -> "7" [label = "Grid", color = "black"];
-"3" -> "6" [label = "Grid", color = "black"];
-"3" -> "5" [label = "Grid", color = "black"];
-"3" -> "4" [label = "Grid", color = "black"];
-"3" -> "3" [label = "Grid", color = "black"];
-"3" -> "2" [label = "Grid", color = "black"];
-"3" -> "1" [label = "Grid", color = "black"];
-"2" -> "7" [label = "Grid", color = "black"];
-"2" -> "6" [label = "Grid", color = "black"];
-"2" -> "5" [label = "Grid", color = "black"];
-"2" -> "4" [label = "Grid", color = "black"];
-"2" -> "3" [label = "Grid", color = "black"];
-"2" -> "2" [label = "Grid", color = "black"];
-"2" -> "1" [label = "Grid", color = "black"];
-"1" -> "7" [label = "Grid", color = "black"];
-"1" -> "6" [label = "Grid", color = "black"];
-"1" -> "5" [label = "Grid", color = "black"];
-"1" -> "4" [label = "Grid", color = "black"];
-"1" -> "3" [label = "Grid", color = "black"];
-"1" -> "2" [label = "Grid", color = "black"];
-"1" -> "1" [label = "Grid", color = "black"];
-"7" -> "ROOT-NODE" [label = "GridYRange", color = "#efdf84"];
-"6" -> "ROOT-NODE" [label = "GridYRange", color = "#efdf84"];
-"5" -> "ROOT-NODE" [label = "GridYRange", color = "#efdf84"];
-"4" -> "ROOT-NODE" [label = "GridYRange", color = "#efdf84"];
-"3" -> "ROOT-NODE" [label = "GridYRange", color = "#efdf84"];
-"2" -> "ROOT-NODE" [label = "GridYRange", color = "#efdf84"];
-"1" -> "ROOT-NODE" [label = "GridYRange", color = "#efdf84"];
-"12" -> "ROOT-NODE" [label = "GridXRange", color = "#bdef6b"];
-"11" -> "ROOT-NODE" [label = "GridXRange", color = "#bdef6b"];
-"10" -> "ROOT-NODE" [label = "GridXRange", color = "#bdef6b"];
-"9" -> "ROOT-NODE" [label = "GridXRange", color = "#bdef6b"];
-"8" -> "ROOT-NODE" [label = "GridXRange", color = "#bdef6b"];
-"7" -> "ROOT-NODE" [label = "GridXRange", color = "#bdef6b"];
-"6" -> "ROOT-NODE" [label = "GridXRange", color = "#bdef6b"];
-"5" -> "ROOT-NODE" [label = "GridXRange", color = "#bdef6b"];
-"4" -> "ROOT-NODE" [label = "GridXRange", color = "#bdef6b"];
-"3" -> "ROOT-NODE" [label = "GridXRange", color = "#bdef6b"];
-"2" -> "ROOT-NODE" [label = "GridXRange", color = "#bdef6b"];
-"1" -> "ROOT-NODE" [label = "GridXRange", color = "#bdef6b"];
-"10" -> "ROOT-NODE" [label = "AsteroidCollisionPowerConsumption", color = "#5863ee"];
-"20" -> "ROOT-NODE" [label = "WarpDrivePowerConsumption", color = "LightSteelBlue1"];
-"5" -> "ROOT-NODE" [label = "NormalMovePowerConsumption", color = "gray"];
-"12" [color = "wheat3", style = "filled, solid", shape = "box"]
-"5" [color = "wheat3", style = "filled, solid", shape = "box"]
-"11" [color = "wheat3", style = "filled, solid", shape = "box"]
-"2" [color = "wheat3", style = "filled, solid", shape = "box"]
-"10" [color = "wheat3", style = "filled, solid", shape = "box"]
-"6" [color = "wheat3", style = "filled, solid", shape = "box"]
-"8" [color = "wheat3", style = "filled, solid", shape = "box"]
-"3" [color = "wheat3", style = "filled, solid", shape = "box"]
-"7" [color = "wheat3", style = "filled, solid", shape = "box"]
-"1" [color = "wheat3", style = "filled, solid", shape = "box"]
-"4" [color = "wheat3", style = "filled, solid", shape = "box"]
-"9" [color = "wheat3", style = "filled, solid", shape = "box"]
-"ROOT-NODE" [color = "lightblue", style = "filled, solid", shape = "diamond"]
-"20" [color = "wheat3", style = "filled, solid", shape = "box"]
-subgraph "cluster_REPORT" {node [style=filled,color=white]; label="REPORT"; style=filled;color=lightgrey; }
-subgraph "cluster_MOVEMENTS" {node [style=filled,color=white]; label="MOVEMENTS"; style=filled;color=lightgrey; }
-subgraph "cluster_STATUS" {node [style=filled,color=white]; label="STATUS"; style=filled;color=lightgrey; }
+digraph history {
+graph [nodesep=1.5, ranksep=1.5];
+0 [shape=box, color="#99BF38", fontsize=12, penwidth=2, label="NormalMovePowerConsumption = 5,WarpDrivePowerConsumption = 20,AsteroidCollisionPowerConsumption = 10,\nGridXRange = \{1,2,3,4,5,6,7,8,9,10,11,12\},GridYRange = \{1,2,3,4,5,6,7\},Grid = \{(1\|-\>1),(1\|-\>2),(1\|-\>3),(1\|-\>4),(1\|-\>5),(1\|-\>6),(1\|-\>7),(2\|-\>1),(2\|-\>2),(2\|-\>3),(2\|-\>4),(2\|-\>5),(2\|-\>6),(2\|-\>7),(3\|-\>1),(3\|-\>2),(3\|-\>3),(3\|-\>4),(3\|-\>5),(3\|-\>6),(3\|-\>7),(4\|-\>1),(4\|-\>2),(4\|-\>3),(4\|-\>4),(4\|-\>5),(4\|-\>6),(4\|-\>7),(5\|-\>1),(5\|-\>2),(5\|-\>3),(5\|-\>4),(5\|-\>5),(5\|-\>6),(5\|-\>7),(6\|-\>1),(6\|-\>2),(6\|-\>3),(6\|-\>4),(6\|-\>5)...,\nHomebase(1) = 1,Starbase(6) = 4,Asteroids = \{(3\|-\>2),(3\|-\>5),(5\|-\>4),(6\|-\>7),(7\|-\>1),(7\|-\>5),(7\|-\>7),(8\|-\>3),(10\|-\>6),(11\|-\>2),(12\|-\>5)\}"];
+
+1 [shape=box, style=filled, color="#FF3800", fontsize=12, penwidth=2, label="spaceshipX = 1,spaceshipY = 1,spaceshipPower = 80,\nvisitedRegions = \{\},noOfAsteroidCollisions = 0,spaceshipCurrentPosition = (1\|-\>1),\nspaceshipRoute(1) = (1\|-\>1),gameStatus = \{GameNotOver\}"];
+
+3 [shape=box, style=filled, color="#FF3800", fontsize=12, penwidth=2, label="spaceshipX = 2,spaceshipY = 1,spaceshipPower = 75,\nvisitedRegions(2) = 1,noOfAsteroidCollisions = 0,spaceshipCurrentPosition = (2\|-\>1),\nspaceshipRoute(1) = (1\|-\>1),spaceshipRoute(2) = (2\|-\>1),gameStatus = \{GameNotOver\}"];
+
+15 [shape=box, style=filled, color="#FF3800", fontsize=12, penwidth=2, label="spaceshipX = 8,spaceshipY = 1,spaceshipPower = 55,\nvisitedRegions(2) = 1,visitedRegions(8) = 1,noOfAsteroidCollisions = 0,\nspaceshipCurrentPosition = (8\|-\>1),spaceshipRoute(1) = (1\|-\>1),spaceshipRoute(2) = (2\|-\>1),\nspaceshipRoute(3) = (8\|-\>1),gameStatus = \{GameNotOver\}"];
+
+29 [shape=box, style=filled, color="#FF3800", fontsize=12, penwidth=2, label="spaceshipX = 10,spaceshipY = 1,spaceshipPower = 35,\nvisitedRegions(2) = 1,visitedRegions(8) = 1,visitedRegions(10) = 1,\nnoOfAsteroidCollisions = 0,spaceshipCurrentPosition = (10\|-\>1),spaceshipRoute(1) = (1\|-\>1),\nspaceshipRoute(2) = (2\|-\>1),spaceshipRoute(3) = (8\|-\>1),spaceshipRoute(4) = (10\|-\>1),\ngameStatus = \{GameNotOver\}"];
+
+36 [shape=box, color="#99BF38", fontsize=12, penwidth=2, label="repeated (11)\nspaceshipX = 4,spaceshipY = 1,spaceshipPower = 15,\nvisitedRegions(2) = 1,visitedRegions(4) = 1,visitedRegions(8) = 1,\nvisitedRegions(10) = 1,noOfAsteroidCollisions = 0,spaceshipCurrentPosition = (4\|-\>1),\nspaceshipRoute(1) = (1\|-\>1),spaceshipRoute(2) = (2\|-\>1),spaceshipRoute(3) = (8\|-\>1),\nspaceshipRoute(4) = (10\|-\>1),spaceshipRoute(5) = (4\|-\>1),gameStatus = \{GameNotOver\}"];
+
+43 [shape=box, color="#99BF38", fontsize=12, penwidth=2, label="spaceshipX = 4,spaceshipY = 2,spaceshipPower = 10,\nvisitedRegions = \{(2\|-\>1),(4\|-\>1),(4\|-\>2),(8\|-\>1),(10\|-\>1)\},noOfAsteroidCollisions = 0,spaceshipCurrentPosition = (4\|-\>2),\nspaceshipRoute(1) = (1\|-\>1),spaceshipRoute(2) = (2\|-\>1),spaceshipRoute(3) = (8\|-\>1),\nspaceshipRoute(4) = (10\|-\>1),spaceshipRoute(5) = (4\|-\>1),spaceshipRoute(6) = (4\|-\>2),\ngameStatus = \{GameNotOver\}"];
+
+49 [shape=box, color="#99BF38", fontsize=12, penwidth=2, label="repeated (6)\nspaceshipX = 5,spaceshipY = 2,spaceshipPower = 5,\nvisitedRegions = \{(2\|-\>1),(4\|-\>1),(4\|-\>2),(5\|-\>2),(8\|-\>1),(10\|-\>1)\},noOfAsteroidCollisions = 0,spaceshipCurrentPosition = (5\|-\>2),\nspaceshipRoute(1) = (1\|-\>1),spaceshipRoute(2) = (2\|-\>1),spaceshipRoute(3) = (8\|-\>1),\nspaceshipRoute(4) = (10\|-\>1),spaceshipRoute(5) = (4\|-\>1),spaceshipRoute(6) = (4\|-\>2),\nspaceshipRoute(7) = (5\|-\>2),gameStatus = \{GameNotOver\}"];
+
+52 [shape=doubleoctagon, color="#99BF38", fontsize=12, penwidth=2, label="repeated (80)\nspaceshipX = 4,spaceshipY = 2,spaceshipPower = 0,\nvisitedRegions = \{(2\|-\>1),(4\|-\>1),(4\|-\>2),(5\|-\>2),(8\|-\>1),(10\|-\>1)\},noOfAsteroidCollisions = 0,spaceshipCurrentPosition = (4\|-\>2),\nspaceshipRoute(1) = (1\|-\>1),spaceshipRoute(2) = (2\|-\>1),spaceshipRoute(3) = (8\|-\>1),\nspaceshipRoute(4) = (10\|-\>1),spaceshipRoute(5) = (4\|-\>1),spaceshipRoute(6) = (4\|-\>2),\nspaceshipRoute(7) = (5\|-\>2),spaceshipRoute(8) = (4\|-\>2),gameStatus = \{GameLost\}"];
+
+root [shape=invtriangle, color="#99BF38", fontsize=12, penwidth=2, label="root"];
+
+root -> 0 [style = dotted, color = black, label="SETUP_CONSTANTS", fontsize=12];
+
+0 -> 1 [color = "#006391", label="INITIALISATION", fontsize=12];
+
+1 -> 3 [color = "#006391", label="MoveForward--\>MOVEMENT_SUCCESSFUL", fontsize=12];
+
+3 -> 15 [color = "#006391", label="EngageWarpDrive(8,1)--\>MOVEMENT_SUCCESSFUL", fontsize=12];
+
+15 -> 29 [color = "#006391", label="EngageWarpDrive(10,1)--\>MOVEMENT_SUCCESSFUL", fontsize=12];
+
+29 -> 36 [color = "#006391", label="EngageWarpDrive(4,1)--\>MOVEMENT_SUCCESSFUL", fontsize=12];
+
+
+
+
+
+
+
+
+
+
+
+36 -> 43 [color = "#006391", label="MoveUp--\>MOVEMENT_SUCCESSFUL", fontsize=12];
+
+43 -> 49 [color = "#006391", label="MoveForward--\>MOVEMENT_SUCCESSFUL", fontsize=12];
+
+
+
+
+
+
+49 -> 52 [color = "#006391", label="MoveBackward--\>GAME_LOST", fontsize=12];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

@@ -1,7 +1,10 @@
-/* Space
- * Author: Brion Silva
- * Creation date: 21/12/2018
- */
+/* ******************************************************************************
+** 6SENG001W Reasoning About Programs Coursework (2018/19)
+** Component : Space
+** Author : Brion Silva
+** Created : 21/12/2018
+** Modified : 27/12/2018
+******************************************************************************* */
 MACHINE 
     Space
 
