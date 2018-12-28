@@ -90,7 +90,7 @@ VARIABLES
 INVARIANT
     spaceshipX : GridXRange &
     spaceshipY : GridYRange &
-    spaceshipPower : NAT &
+    spaceshipPower : INTEGER &
     noOfAsteroidCollisions : NAT &
     spaceshipCurrentPosition : Grid &
     spaceshipRoute : seq( Grid ) &
@@ -99,7 +99,7 @@ INVARIANT
 INITIALISATION
     spaceshipX := 1
     || spaceshipY := 1
-    || spaceshipPower := 80
+    || spaceshipPower := 120
     || noOfAsteroidCollisions := 0
     || spaceshipCurrentPosition := ( 1 |-> 1 ) 
     || spaceshipRoute := [ ( 1 |-> 1 ) ] 
@@ -509,12 +509,10 @@ OPERATIONS
                     THEN
                         gameStatus := { GameNotOver }
                         || noOfAsteroidCollisions := noOfAsteroidCollisions + 1
-                        || spaceshipPower  := spaceshipPower - AsteroidCollisionPowerConsumption
                         || report := WARP_DRIVE_FAILED_ASTEROID_COLLISION
                     ELSE
                         gameStatus := { GameLost }
                         || noOfAsteroidCollisions := noOfAsteroidCollisions + 1
-                        || spaceshipPower  := spaceshipPower - AsteroidCollisionPowerConsumption
                         || report := GAME_LOST
                     END
                 /* Checks if the spaceship is not inside the grid */

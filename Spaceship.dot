@@ -2,21 +2,31 @@ digraph history {
 graph [nodesep=1.5, ranksep=1.5];
 0 [shape=box, color="#99BF38", fontsize=12, penwidth=2, label="NormalMovePowerConsumption = 5,WarpDrivePowerConsumption = 20,AsteroidCollisionPowerConsumption = 10,\nGridXRange = \{1,2,3,4,5,6,7,8,9,10,11,12\},GridYRange = \{1,2,3,4,5,6,7\},Grid = \{(1\|-\>1),(1\|-\>2),(1\|-\>3),(1\|-\>4),(1\|-\>5),(1\|-\>6),(1\|-\>7),(2\|-\>1),(2\|-\>2),(2\|-\>3),(2\|-\>4),(2\|-\>5),(2\|-\>6),(2\|-\>7),(3\|-\>1),(3\|-\>2),(3\|-\>3),(3\|-\>4),(3\|-\>5),(3\|-\>6),(3\|-\>7),(4\|-\>1),(4\|-\>2),(4\|-\>3),(4\|-\>4),(4\|-\>5),(4\|-\>6),(4\|-\>7),(5\|-\>1),(5\|-\>2),(5\|-\>3),(5\|-\>4),(5\|-\>5),(5\|-\>6),(5\|-\>7),(6\|-\>1),(6\|-\>2),(6\|-\>3),(6\|-\>4),(6\|-\>5)...,\nHomebase(1) = 1,Starbase(6) = 4,Asteroids = \{(3\|-\>2),(3\|-\>5),(5\|-\>4),(6\|-\>7),(7\|-\>1),(7\|-\>5),(7\|-\>7),(8\|-\>3),(10\|-\>6),(11\|-\>2),(12\|-\>5)\}"];
 
-1 [shape=box, style=filled, color="#FF3800", fontsize=12, penwidth=2, label="spaceshipX = 1,spaceshipY = 1,spaceshipPower = 80,\nvisitedRegions = \{\},noOfAsteroidCollisions = 0,spaceshipCurrentPosition = (1\|-\>1),\nspaceshipRoute(1) = (1\|-\>1),gameStatus = \{GameNotOver\}"];
+1 [shape=box, color="#99BF38", fontsize=12, penwidth=2, label="repeated (2)\nspaceshipX = 1,spaceshipY = 1,spaceshipPower = 120,\nnoOfAsteroidCollisions = 0,spaceshipCurrentPosition = (1\|-\>1),spaceshipRoute(1) = (1\|-\>1),\ngameStatus = \{GameNotOver\}"];
 
-3 [shape=box, style=filled, color="#FF3800", fontsize=12, penwidth=2, label="spaceshipX = 2,spaceshipY = 1,spaceshipPower = 75,\nvisitedRegions(2) = 1,noOfAsteroidCollisions = 0,spaceshipCurrentPosition = (2\|-\>1),\nspaceshipRoute(1) = (1\|-\>1),spaceshipRoute(2) = (2\|-\>1),gameStatus = \{GameNotOver\}"];
+2 [shape=box, color="#99BF38", fontsize=12, penwidth=2, label="spaceshipX = 1,spaceshipY = 2,spaceshipPower = 115,\nnoOfAsteroidCollisions = 0,spaceshipCurrentPosition = (1\|-\>2),spaceshipRoute(1) = (1\|-\>1),\nspaceshipRoute(2) = (1\|-\>2),gameStatus = \{GameNotOver\}"];
 
-15 [shape=box, style=filled, color="#FF3800", fontsize=12, penwidth=2, label="spaceshipX = 8,spaceshipY = 1,spaceshipPower = 55,\nvisitedRegions(2) = 1,visitedRegions(8) = 1,noOfAsteroidCollisions = 0,\nspaceshipCurrentPosition = (8\|-\>1),spaceshipRoute(1) = (1\|-\>1),spaceshipRoute(2) = (2\|-\>1),\nspaceshipRoute(3) = (8\|-\>1),gameStatus = \{GameNotOver\}"];
+16 [shape=box, color="#99BF38", fontsize=12, penwidth=2, label="spaceshipX = 2,spaceshipY = 2,spaceshipPower = 110,\nnoOfAsteroidCollisions = 0,spaceshipCurrentPosition = (2\|-\>2),spaceshipRoute(1) = (1\|-\>1),\nspaceshipRoute(2) = (1\|-\>2),spaceshipRoute(3) = (2\|-\>2),gameStatus = \{GameNotOver\}"];
 
-29 [shape=box, style=filled, color="#FF3800", fontsize=12, penwidth=2, label="spaceshipX = 10,spaceshipY = 1,spaceshipPower = 35,\nvisitedRegions(2) = 1,visitedRegions(8) = 1,visitedRegions(10) = 1,\nnoOfAsteroidCollisions = 0,spaceshipCurrentPosition = (10\|-\>1),spaceshipRoute(1) = (1\|-\>1),\nspaceshipRoute(2) = (2\|-\>1),spaceshipRoute(3) = (8\|-\>1),spaceshipRoute(4) = (10\|-\>1),\ngameStatus = \{GameNotOver\}"];
+30 [shape=box, color="#99BF38", fontsize=12, penwidth=2, label="spaceshipX = 2,spaceshipY = 2,spaceshipPower = 100,\nnoOfAsteroidCollisions = 1,spaceshipCurrentPosition = (2\|-\>2),spaceshipRoute(1) = (1\|-\>1),\nspaceshipRoute(2) = (1\|-\>2),spaceshipRoute(3) = (2\|-\>2),gameStatus = \{GameNotOver\}"];
 
-36 [shape=box, color="#99BF38", fontsize=12, penwidth=2, label="repeated (11)\nspaceshipX = 4,spaceshipY = 1,spaceshipPower = 15,\nvisitedRegions(2) = 1,visitedRegions(4) = 1,visitedRegions(8) = 1,\nvisitedRegions(10) = 1,noOfAsteroidCollisions = 0,spaceshipCurrentPosition = (4\|-\>1),\nspaceshipRoute(1) = (1\|-\>1),spaceshipRoute(2) = (2\|-\>1),spaceshipRoute(3) = (8\|-\>1),\nspaceshipRoute(4) = (10\|-\>1),spaceshipRoute(5) = (4\|-\>1),gameStatus = \{GameNotOver\}"];
+42 [shape=box, color="#99BF38", fontsize=12, penwidth=2, label="spaceshipX = 2,spaceshipY = 1,spaceshipPower = 95,\nnoOfAsteroidCollisions = 1,spaceshipCurrentPosition = (2\|-\>1),spaceshipRoute(1) = (1\|-\>1),\nspaceshipRoute(2) = (1\|-\>2),spaceshipRoute(3) = (2\|-\>2),spaceshipRoute(4) = (2\|-\>1),\ngameStatus = \{GameNotOver\}"];
 
-43 [shape=box, color="#99BF38", fontsize=12, penwidth=2, label="spaceshipX = 4,spaceshipY = 2,spaceshipPower = 10,\nvisitedRegions = \{(2\|-\>1),(4\|-\>1),(4\|-\>2),(8\|-\>1),(10\|-\>1)\},noOfAsteroidCollisions = 0,spaceshipCurrentPosition = (4\|-\>2),\nspaceshipRoute(1) = (1\|-\>1),spaceshipRoute(2) = (2\|-\>1),spaceshipRoute(3) = (8\|-\>1),\nspaceshipRoute(4) = (10\|-\>1),spaceshipRoute(5) = (4\|-\>1),spaceshipRoute(6) = (4\|-\>2),\ngameStatus = \{GameNotOver\}"];
+57 [shape=box, color="#99BF38", fontsize=12, penwidth=2, label="spaceshipX = 3,spaceshipY = 1,spaceshipPower = 90,\nnoOfAsteroidCollisions = 1,spaceshipCurrentPosition = (3\|-\>1),spaceshipRoute(1) = (1\|-\>1),\nspaceshipRoute(2) = (1\|-\>2),spaceshipRoute(3) = (2\|-\>2),spaceshipRoute(4) = (2\|-\>1),\nspaceshipRoute(5) = (3\|-\>1),gameStatus = \{GameNotOver\}"];
 
-49 [shape=box, color="#99BF38", fontsize=12, penwidth=2, label="repeated (6)\nspaceshipX = 5,spaceshipY = 2,spaceshipPower = 5,\nvisitedRegions = \{(2\|-\>1),(4\|-\>1),(4\|-\>2),(5\|-\>2),(8\|-\>1),(10\|-\>1)\},noOfAsteroidCollisions = 0,spaceshipCurrentPosition = (5\|-\>2),\nspaceshipRoute(1) = (1\|-\>1),spaceshipRoute(2) = (2\|-\>1),spaceshipRoute(3) = (8\|-\>1),\nspaceshipRoute(4) = (10\|-\>1),spaceshipRoute(5) = (4\|-\>1),spaceshipRoute(6) = (4\|-\>2),\nspaceshipRoute(7) = (5\|-\>2),gameStatus = \{GameNotOver\}"];
+70 [shape=box, color="#99BF38", fontsize=12, penwidth=2, label="spaceshipX = 4,spaceshipY = 1,spaceshipPower = 85,\nnoOfAsteroidCollisions = 1,spaceshipCurrentPosition = (4\|-\>1),spaceshipRoute(1) = (1\|-\>1),\nspaceshipRoute(2) = (1\|-\>2),spaceshipRoute(3) = (2\|-\>2),spaceshipRoute(4) = (2\|-\>1),\nspaceshipRoute(5) = (3\|-\>1),spaceshipRoute(6) = (4\|-\>1),gameStatus = \{GameNotOver\}"];
 
-52 [shape=doubleoctagon, color="#99BF38", fontsize=12, penwidth=2, label="repeated (80)\nspaceshipX = 4,spaceshipY = 2,spaceshipPower = 0,\nvisitedRegions = \{(2\|-\>1),(4\|-\>1),(4\|-\>2),(5\|-\>2),(8\|-\>1),(10\|-\>1)\},noOfAsteroidCollisions = 0,spaceshipCurrentPosition = (4\|-\>2),\nspaceshipRoute(1) = (1\|-\>1),spaceshipRoute(2) = (2\|-\>1),spaceshipRoute(3) = (8\|-\>1),\nspaceshipRoute(4) = (10\|-\>1),spaceshipRoute(5) = (4\|-\>1),spaceshipRoute(6) = (4\|-\>2),\nspaceshipRoute(7) = (5\|-\>2),spaceshipRoute(8) = (4\|-\>2),gameStatus = \{GameLost\}"];
+83 [shape=box, color="#99BF38", fontsize=12, penwidth=2, label="spaceshipX = 5,spaceshipY = 1,spaceshipPower = 80,\nnoOfAsteroidCollisions = 1,spaceshipCurrentPosition = (5\|-\>1),spaceshipRoute(1) = (1\|-\>1),\nspaceshipRoute(2) = (1\|-\>2),spaceshipRoute(3) = (2\|-\>2),spaceshipRoute(4) = (2\|-\>1),\nspaceshipRoute(5) = (3\|-\>1),spaceshipRoute(6) = (4\|-\>1),spaceshipRoute(7) = (5\|-\>1),\ngameStatus = \{GameNotOver\}"];
+
+94 [shape=box, color="#99BF38", fontsize=12, penwidth=2, label="spaceshipX = 5,spaceshipY = 2,spaceshipPower = 75,\nnoOfAsteroidCollisions = 1,spaceshipCurrentPosition = (5\|-\>2),spaceshipRoute(1) = (1\|-\>1),\nspaceshipRoute(2) = (1\|-\>2),spaceshipRoute(3) = (2\|-\>2),spaceshipRoute(4) = (2\|-\>1),\nspaceshipRoute(5) = (3\|-\>1),spaceshipRoute(6) = (4\|-\>1),spaceshipRoute(7) = (5\|-\>1),\nspaceshipRoute(8) = (5\|-\>2),gameStatus = \{GameNotOver\}"];
+
+110 [shape=box, color="#99BF38", fontsize=12, penwidth=2, label="spaceshipX = 6,spaceshipY = 2,spaceshipPower = 70,\nnoOfAsteroidCollisions = 1,spaceshipCurrentPosition = (6\|-\>2),spaceshipRoute(1) = (1\|-\>1),\nspaceshipRoute(2) = (1\|-\>2),spaceshipRoute(3) = (2\|-\>2),spaceshipRoute(4) = (2\|-\>1),\nspaceshipRoute(5) = (3\|-\>1),spaceshipRoute(6) = (4\|-\>1),spaceshipRoute(7) = (5\|-\>1),\nspaceshipRoute(8) = (5\|-\>2),spaceshipRoute(9) = (6\|-\>2),gameStatus = \{GameNotOver\}"];
+
+124 [shape=box, color="#99BF38", fontsize=12, penwidth=2, label="spaceshipX = 7,spaceshipY = 2,spaceshipPower = 65,\nnoOfAsteroidCollisions = 1,spaceshipCurrentPosition = (7\|-\>2),spaceshipRoute(1) = (1\|-\>1),\nspaceshipRoute(2) = (1\|-\>2),spaceshipRoute(3) = (2\|-\>2),spaceshipRoute(4) = (2\|-\>1),\nspaceshipRoute(5) = (3\|-\>1),spaceshipRoute(6) = (4\|-\>1),spaceshipRoute(7) = (5\|-\>1),\nspaceshipRoute(8) = (5\|-\>2),spaceshipRoute(9) = (6\|-\>2),spaceshipRoute(10) = (7\|-\>2),\ngameStatus = \{GameNotOver\}"];
+
+137 [shape=box, color="#99BF38", fontsize=12, penwidth=2, label="spaceshipX = 6,spaceshipY = 2,spaceshipPower = 60,\nnoOfAsteroidCollisions = 1,spaceshipCurrentPosition = (6\|-\>2),spaceshipRoute(1) = (1\|-\>1),\nspaceshipRoute(2) = (1\|-\>2),spaceshipRoute(3) = (2\|-\>2),spaceshipRoute(4) = (2\|-\>1),\nspaceshipRoute(5) = (3\|-\>1),spaceshipRoute(6) = (4\|-\>1),spaceshipRoute(7) = (5\|-\>1),\nspaceshipRoute(8) = (5\|-\>2),spaceshipRoute(9) = (6\|-\>2),spaceshipRoute(10) = (7\|-\>2),\nspaceshipRoute(11) = (6\|-\>2),gameStatus = \{GameNotOver\}"];
+
+163 [shape=doubleoctagon, color="#99BF38", fontsize=12, penwidth=2, label="repeated (5)\nspaceshipX = 6,spaceshipY = 4,spaceshipPower = 40,\nnoOfAsteroidCollisions = 1,spaceshipCurrentPosition = (6\|-\>4),spaceshipRoute(1) = (1\|-\>1),\nspaceshipRoute(2) = (1\|-\>2),spaceshipRoute(3) = (2\|-\>2),spaceshipRoute(4) = (2\|-\>1),\nspaceshipRoute(5) = (3\|-\>1),spaceshipRoute(6) = (4\|-\>1),spaceshipRoute(7) = (5\|-\>1),\nspaceshipRoute(8) = (5\|-\>2),spaceshipRoute(9) = (6\|-\>2),spaceshipRoute(10) = (7\|-\>2),\nspaceshipRoute(11) = (6\|-\>2),spaceshipRoute(12) = (6\|-\>4),gameStatus = \{GameWon\}"];
 
 root [shape=invtriangle, color="#99BF38", fontsize=12, penwidth=2, label="root"];
 
@@ -24,109 +34,30 @@ root -> 0 [style = dotted, color = black, label="SETUP_CONSTANTS", fontsize=12];
 
 0 -> 1 [color = "#006391", label="INITIALISATION", fontsize=12];
 
-1 -> 3 [color = "#006391", label="MoveForward--\>MOVEMENT_SUCCESSFUL", fontsize=12];
 
-3 -> 15 [color = "#006391", label="EngageWarpDrive(8,1)--\>MOVEMENT_SUCCESSFUL", fontsize=12];
+1 -> 2 [color = "#006391", label="MoveUp--\>MOVEMENT_SUCCESSFUL", fontsize=12];
 
-15 -> 29 [color = "#006391", label="EngageWarpDrive(10,1)--\>MOVEMENT_SUCCESSFUL", fontsize=12];
+2 -> 16 [color = "#006391", label="MoveForward--\>MOVEMENT_SUCCESSFUL", fontsize=12];
 
-29 -> 36 [color = "#006391", label="EngageWarpDrive(4,1)--\>MOVEMENT_SUCCESSFUL", fontsize=12];
+16 -> 30 [color = "#006391", label="MoveForward--\>MOVEMENT_FAILED_ASTEROID_COLLISION", fontsize=12];
 
+30 -> 42 [color = "#006391", label="MoveDown--\>MOVEMENT_SUCCESSFUL", fontsize=12];
 
+42 -> 57 [color = "#006391", label="MoveForward--\>MOVEMENT_SUCCESSFUL", fontsize=12];
 
+57 -> 70 [color = "#006391", label="MoveForward--\>MOVEMENT_SUCCESSFUL", fontsize=12];
 
+70 -> 83 [color = "#006391", label="MoveForward--\>MOVEMENT_SUCCESSFUL", fontsize=12];
 
+83 -> 94 [color = "#006391", label="MoveUp--\>MOVEMENT_SUCCESSFUL", fontsize=12];
 
+94 -> 110 [color = "#006391", label="MoveForward--\>MOVEMENT_SUCCESSFUL", fontsize=12];
 
+110 -> 124 [color = "#006391", label="MoveForward--\>MOVEMENT_SUCCESSFUL", fontsize=12];
 
+124 -> 137 [color = "#006391", label="MoveBackward--\>MOVEMENT_SUCCESSFUL", fontsize=12];
 
-
-
-36 -> 43 [color = "#006391", label="MoveUp--\>MOVEMENT_SUCCESSFUL", fontsize=12];
-
-43 -> 49 [color = "#006391", label="MoveForward--\>MOVEMENT_SUCCESSFUL", fontsize=12];
-
-
-
-
-
-
-49 -> 52 [color = "#006391", label="MoveBackward--\>GAME_LOST", fontsize=12];
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+137 -> 163 [color = "#006391", label="EngageWarpDrive(6,4)--\>GAME_WON", fontsize=12];
 
 
 
